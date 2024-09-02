@@ -56,23 +56,20 @@ plot_population <- pop_data_2mil %>%
     color = "gray80"
   ) +
   geom_segment(
-    aes(xend = 0,
-        yend = fct_reorder(msa_short, percent_diff)),
+    mapping = aes(xend = 0, yend = fct_reorder(msa_short, percent_diff)),
     linewidth = 1.5
   ) +
-  scale_x_continuous(
-    limits = c(-7, 10), 
-  ) +
-  scale_color_manual(values = c("#8C1515", "#041E42")) +
   geom_label(
     fill = ifelse(pop_data_2mil$category == "positive", "#041E42", "#8C1515"),
     color = "#FEFAEA",
     label.padding = unit(0.35, "lines"),
     hjust = ifelse(pop_data_2mil$category == "positive", 0, 1)
-  )
+  ) +
+  scale_x_continuous(limits = c(-7, 10)) +
+  scale_color_manual(values = c("#8C1515", "#041E42"))
 
 
-# Save figure
+# Save plot
 ggsave("plots/population.png", 
        plot = plot_population, 
        width = 9.5, 
