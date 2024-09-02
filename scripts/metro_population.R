@@ -24,7 +24,7 @@ pop_data_2mil <- pop_data %>%
 
 ## Plotting ------------------------------------------------
 
-# Add fonts
+# Add fonts 
 font_add_google("Roboto")
 showtext_auto()
 
